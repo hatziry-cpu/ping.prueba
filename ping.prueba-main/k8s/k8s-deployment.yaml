@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ping-prueba
+  labels:
+    app: ping-prueba
+spec:
+  replicas: 6
+  selector:
+    matchLabels:
+      app: ping-prueba
+  template:
+    metadata:
+      labels:
+        app: ping-prueba
+    spec:
+      containers:
+        - name: ping-prueba
+          image: ping-prueba:f7c2476
+          ports:
+            - containerPort: 20200
